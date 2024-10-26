@@ -1,0 +1,45 @@
+{"ok":true,"result":[
+  {"update_id":474177615,
+    "message":{"message_id":243,"from":{"id":162389760,"is_bot":false,"first_name":"Sergei","last_name":"S","username":"ssivkov","language_code":"ru"},
+      "chat":{"id":162389760,"first_name":"Sergei","last_name":"S","username":"ssivkov","type":"private"},
+      "date":1729464887,"text":"\u043f\u0440\u0438\u0432\u0435\u0442"}},
+  {"update_id":474177616,
+
+      "message":{
+        "message_id":244,"from":{
+          "id":6149524419,"is_bot":false,"first_name":"Serg","last_name":"S","username":"sserg_arm","language_code":"ru"
+        },
+        "chat":{
+          "id":6149524419,"first_name":"Serg","last_name":"S","username":"sserg_arm","type":"private"
+        },
+        "date":1729464907,"text":"You can get the money \ud83d\udcb5"
+      }
+  },
+  {"update_id":474177617,
+
+  "message":{
+    "message_id":2,"from":{
+      "id":162389760,"is_bot":false,"first_name":"Sergei","last_name":"S","username":"ssivkov","language_code":"ru"
+    },
+  "chat":{
+    "id":-1002498888395,"title":"ToDo","is_forum":true,"type":"supergroup"
+  },
+  "date":1729465460,"new_chat_participant": {
+    "id":5594002263,"is_bot":true,"first_name":"PersonalAssistant","username":"BotAsist_bot"
+  },
+  "new_chat_member":{
+    "id":5594002263,"is_bot":true,"first_name":"PersonalAssistant","username":"BotAsist_bot"
+  },
+  "new_chat_members":[{"id":5594002263,"is_bot":true,"first_name":"PersonalAssistant","username":"BotAsist_bot"}]}}
+]
+}
+
+
+{"ok":true,"result":[
+  {"update_id":474177620,
+"message":{
+  "message_id":17,"from":{
+    "id":162389760,"is_bot":false,"first_name":"Sergei","last_name":"S","username":"ssivkov","language_code":"ru"},
+  "chat":{
+    "id":-1002498888395,"title":"ToDo","is_forum":true,"type":"supergroup"},
+  "date":1729466534,"message_thread_id":2,"reply_to_message":{"message_id":11,"from":{"id":5594002263,"is_bot":true,"first_name":"PersonalAssistant","username":"BotAsist_bot"},"chat":{"id":-1002498888395,"title":"ToDo","is_forum":true,"type":"supergroup"},"date":1729466103,"message_thread_id":2,"text":"lkjshdfsdf"},"text":";lmnn;kn"}}]}
