@@ -1,11 +1,9 @@
-# QRkot_spreadseets
-###  приложение QRKot
+# TELEBot_Test
+###  TELEBot_Test
 
-Фонд собирает пожертвования на различные целевые проекты: 
-на медицинское обслуживание нуждающихся хвостатых, на обустройство 
-кошачьей колонии в подвале, на корм оставшимся без попечения кошкам — на любые
-цели, связанные с поддержкой кошачьей популяции.
-
+Telegramm Bot с прикрученым SQLAlchemy + aiosqlite
+Python 3.12
+Для изучения фрейм ворка aiogram
 
 ### Как запустить проект:
 
@@ -44,23 +42,25 @@ python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-Выполнить миграции:
+Создать файл в коневой дирректории .env для хранения TOKEN к боту
+```text
 
-```bash
-alembic upgrade head
+BOT_TOKEN = 'токен от вашего бота'
+
 ```
+
 Запустить проект:
 
 ```bash
-uvicorn app.main:app --reload
+python3 main.py
 ```
 
 #### технологии
 
 + **Python**
-+ **FastAPI**
++ **aiogram**
 + **SQLALchemy**
-+ **Alembic**
+
 
 
 #### Автор
