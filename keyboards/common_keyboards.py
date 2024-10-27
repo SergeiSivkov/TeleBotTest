@@ -9,11 +9,11 @@ from aiogram.utils.keyboard import ReplyKeyboardBuilder
 
 
 class ButtonText:
-    NEW_TASK = "Новая заявка"
+    NEW_TASK = 'Новая заявка'
     MY_TASKS = 'Мои заявки'
     TASK_LIST = "Список заявок"
     HELP = 'Помощь'
-    PROFILE = "Профиль"
+    PROFILE = 'Профиль'
     TASK_STATUS = 'Статус заявки'
 
 

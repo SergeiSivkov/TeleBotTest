@@ -1,4 +1,5 @@
-from enum import Enum
+from enum import IntEnum, auto
+from typing import Optional
 
 from aiogram.filters.callback_data import CallbackData
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
@@ -6,43 +7,26 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from .actions_kb import random_num_updated_cb_data
 
 
-class RandomNumAction(Enum):
-    dice = "dice"
-    modal = "modal"
+class YesNo(IntEnum):
+    yes = auto()
+    no = auto()
 
 
-class RandomNumCbData(CallbackData, prefix="random_num"):
-    action: RandomNumAction
+class YesNoCallBack(CallbackData, prefix='yes_no'):
+    action: YesNo
+    param: Optional[str] = None
 
 
-def build_yes_no_kb() -> InlineKeyboardMarkup:
+def build_yes_no_kb(param: str = None) -> InlineKeyboardMarkup:
+    print(YesNoCallBack(action=YesNo.yes).pack())
     yes_btn = InlineKeyboardButton(
         text='✅ Да',
-        callback_data=RandomNumCbData(action=RandomNumAction.modal).pack(),
+        callback_data=YesNoCallBack(action=YesNo.yes, param=param).pack(),
     )
     no_btn = InlineKeyboardButton(
-        text="💬 Нет",
-        callback_data=RandomNumCbData(action=RandomNumAction.modal).pack(),
+        text='🚫 Нет',
+        callback_data=YesNoCallBack(action=YesNo.no, param=param).pack(),
     )
-    bot_source_code_btn = InlineKeyboardButton(
-        text="🤖 Исходный код этого бота",
-        url="https://github.com/mahenzon/demo-tg-bot",
-    )
-    btn_random_site = InlineKeyboardButton(
-        text="Random number message",
-        callback_data=random_num_updated_cb_data,
-    )
-    btn_random_num = InlineKeyboardButton(
-        text="🎲 Random Num",
-        callback_data=RandomNumCbData(action=RandomNumAction.dice).pack(),
-    )
-    btn_random_num_modal = InlineKeyboardButton(
-        text="👾 Random Number",
-        callback_data=RandomNumCbData(action=RandomNumAction.modal).pack(),
-    )
-    row_tg = [yes_btn, no_btn]
-    rows = [
-        row_tg,
-    ]
-    markup = InlineKeyboardMarkup(inline_keyboard=rows)
+    rows = [[yes_btn, no_btn],]
+    markup = InlineKeyboardMarkup(inline_keyboard=rows, )
     return markup

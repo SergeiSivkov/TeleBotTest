@@ -23,7 +23,7 @@ class User(Base):
     username = mapped_column(String)
     tgid = mapped_column(BigInteger, unique=True, index=True)
     role = mapped_column(Enum(RoleEnum), nullable=False, default=RoleEnum.USER)
-    is_active = mapped_column(Boolean)
+    is_active = mapped_column(Boolean, nullable=False, default=True)
 
     # Связи с задачами (связь один-ко-многим с Task)
     tasks = relationship(
@@ -86,13 +86,16 @@ class Task(Base):
     @validates('task_number')
     def validate_task_number(self, key, task_number):
         # Получаем все задачи текущего пользователя
-        user_tasks = self.owner.tasks
+        try:
+            user_tasks = self.owner.tasks
         # Если у пользователя уже есть задачи, находим максимальный номер
-        if user_tasks:
-            max_task_number = max(task.task_number for task in user_tasks)
-            # Увеличиваем номер задачи на 1
-            return max_task_number + 1
-        return 1  # Если задач нет, начинаем с 1
+            if user_tasks:
+                max_task_number = max(task.task_number for task in user_tasks)
+                # Увеличиваем номер задачи на 1
+                return max_task_number + 1
+        except Exception as err:
+            return 1  # Если задач нет, начинаем с 1
+
 
     def __repr__(self):
         return (

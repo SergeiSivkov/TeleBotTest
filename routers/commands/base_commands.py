@@ -3,6 +3,7 @@ from aiogram.filters import CommandStart, Command
 
 # from DB import get_async_session
 from keyboards.common_keyboards import get_on_start_kb, ButtonText
+from keyboards.inline_keyboards import yes_no_kb
 from servsices.brain import check_new_user
 
 router = Router(name=__name__)
@@ -13,7 +14,7 @@ async def handle_start(message: types.Message):
     user = await check_new_user(message.from_user.id)
     if not user.is_active:
         await message.answer(
-            text=f'Привет {message.from_user.full_name}! \n '
+            text=f'Уважаемый {message.from_user.full_name}! \n '
                  f'Ваша запись заблокирована обратитесь к администратору \n',
             # reply_markup=get_on_start_kb(),
         )

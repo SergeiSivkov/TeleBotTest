@@ -15,7 +15,7 @@ class PreBase:
 
     id = mapped_column(Integer, primary_key=True, index=True)
     name = mapped_column(String)
-    is_active = mapped_column(Boolean)
+    is_active = mapped_column(Boolean, nullable=False, default=True)
     created_at = mapped_column(
         DateTime(timezone=True), server_default=func.now(),
     )
@@ -32,7 +32,4 @@ Base = declarative_base(cls=PreBase)
 # Создаем фабрику сессий
 async_session = sessionmaker(engine, class_=AsyncSession)
 
-# async def get_async_session():
-#     async with AsyncSessionLocal() as async_session:
-#         yield async_session
 

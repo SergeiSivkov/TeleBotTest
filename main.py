@@ -7,6 +7,7 @@ from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 import config as conf
+from DB.fill_db import populate_tasks
 from DB.init_db import init_db
 from routers import router as main_router
 
@@ -34,6 +35,7 @@ async def main():
     )
     await set_bot_commands(bot)
     await init_db()
+    await populate_tasks(15)  # Заполняем 15 задач
     await dp.start_polling(bot)
 
 
